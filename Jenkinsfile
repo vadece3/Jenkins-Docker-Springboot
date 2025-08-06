@@ -60,7 +60,7 @@ pipeline {
                 sh 'docker rm -f springboot_container || true'
 
                 // Run the newly built image from the local registry
-                sh 'docker run -d -p 8080:8080 --name springboot_container localhost:5000/my-springboot-app:latest'
+                sh 'docker run -d -p 9090:8080 --name springboot_container localhost:5000/my-springboot-app:latest'
             }
         }
     }
