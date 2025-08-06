@@ -8,6 +8,12 @@ pipeline {
 
     stages {
 
+	stage('Test Maven') {
+    	     steps {
+        	sh 'mvn -version'
+    	     }
+	}
+
         stage('Checkout') {
             steps {
                 // Replace with your actual Git URL and branch
