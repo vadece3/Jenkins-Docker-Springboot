@@ -1,14 +1,6 @@
 pipeline {
     agent {
 
-	stages {
-           stage('Docker Permission Check') {
-               steps {
-                sh 'id && ls -l /var/run/docker.sock && docker ps'
-               }
-           }
-    	}
-
 	docker {
             image 'maven-java24-agent' // Use your local Maven + Java 24 image
             args '-v /var/run/docker.sock:/var/run/docker.sock' // Mount Docker socket if needed
@@ -21,6 +13,12 @@ pipeline {
     }
 
     stages {
+
+        stage('Docker Permission Check') {
+            steps {
+                sh 'id && ls -l /var/run/docker.sock && docker ps'
+            }
+        }
 
 	stage('Test Maven') {
     	     steps {
