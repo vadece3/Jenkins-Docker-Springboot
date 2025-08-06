@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+    jenkins:
+        image: jenkins/jenkins:lts
+        container_name: jenkins-container
+        privileged: true
+        user: root
+        ports:
+            - 8080:8080
+            - 50000:50000
+        volumes:
+            - jenkins_home:/var/jenkins_home
+            - /var/run/docker.sock:/var/run/docker.sock # Give Jenkins access to host Docker
+            - /usr/bin/docker:/usr/bin/docker # Mount host Docker CLI
+
+volumes:
+    jenkins_home:
