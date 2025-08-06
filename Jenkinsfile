@@ -1,11 +1,5 @@
 pipeline {
-    agent {
-
-	docker {
-            image 'maven-java24-agent' // Use your local Maven + Java 24 image
-            args '-v /var/run/docker.sock:/var/run/docker.sock' // Mount Docker socket if needed
-        }
-    }
+    agent any
 
     environment {
         IMAGE_NAME = 'localhost:5000/my-springboot-app'  // Use local registry
