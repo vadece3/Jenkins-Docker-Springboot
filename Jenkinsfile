@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Replace with your actual Git URL and branch
-                git url: 'https://your-repo-url.git', branch: 'main'
+                git url: 'https://github.com/vadece3/Jenkins-Docker-Springboot.git', branch: 'main'
             }
         }
 
