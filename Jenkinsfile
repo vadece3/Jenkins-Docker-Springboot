@@ -8,7 +8,7 @@ pipeline {
 
     stages {
 
-        stage('Docker Permission Check') {
+        stage('Docker Permission Checks') {
             steps {
                 sh 'id && ls -l /var/run/docker.sock && docker ps'
             }
